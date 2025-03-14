@@ -344,8 +344,8 @@ def headset_loop (shared_mem1, shared_mem2, some_other_feedback_multiproc_dataty
         headset = WebRTCHeadset()
         headset.run_in_thread()
 
-        shm_left = shared_memory.SharedMemory(name=shm_left_name)
-        shm_right = shared_memory.SharedMemory(name=shm_right_name)
+        shm_left = shared_memory.SharedMemory(name=shared_mem1)
+        shm_right = shared_memory.SharedMemory(name=shared_mem2)
 
         left_frame = np.ndarray(frame_shape, dtype=frame_dtype, buffer=shm_left.buf)
         right_frame = np.ndarray(frame_shape, dtype=frame_dtype, buffer=shm_right.buf)
